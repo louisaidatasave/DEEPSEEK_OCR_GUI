@@ -1,0 +1,56 @@
+========================================
+Poppler 安裝說明（PDF 功能必需）
+========================================
+
+PDF 處理功能需要 Poppler 工具才能運作。
+
+【快速安裝】
+
+方法 1：使用 Chocolatey（推薦）
+--------------------------------
+如果你有 Chocolatey 套件管理器：
+
+1. 以管理員身份開啟 PowerShell
+2. 執行：choco install poppler
+3. 重新開啟 PowerShell
+4. 驗證：pdftoppm -v
+
+
+方法 2：手動安裝
+--------------------------------
+1. 下載 Poppler：
+   https://github.com/oschwartz10612/poppler-windows/releases/
+   
+2. 下載最新的 Release-XX.XX.X-0.zip
+
+3. 解壓到：C:\Program Files\poppler\
+
+4. 加入系統 PATH：
+   - 右鍵「本機」→「內容」
+   - 「進階系統設定」→「環境變數」
+   - 在「系統變數」找到「Path」
+   - 新增：C:\Program Files\poppler\Library\bin
+   
+5. 重新開啟 PowerShell
+
+6. 驗證：pdftoppm -v
+
+
+【驗證安裝】
+
+執行檢查腳本：
+python scripts/check_poppler.py
+
+如果顯示「✓ 檢查通過」，表示安裝成功！
+
+
+【詳細說明】
+
+請參考：docs/POPPLER_INSTALL.md
+
+
+【注意】
+
+- 安裝後必須重新開啟 PowerShell
+- 如果不安裝 Poppler，PDF 功能無法使用
+- 單張圖片和批次處理功能不受影響

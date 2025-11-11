@@ -1,0 +1,51 @@
+{
+  "project": {
+    "name": "DeepSeek-OCR",
+    "version": "1.0.0",
+    "description": "DeepSeek-OCR 本地部署系統"
+  },
+  "paths": {
+    "model_dir": "./models/deepseek-ocr",
+    "output_dir": "./outputs",
+    "log_dir": "./outputs/logs",
+    "temp_dir": "./outputs/temp",
+    "config_dir": "./config"
+  },
+  "device": {
+    "type": "cuda",
+    "fallback_to_cpu": true,
+    "cuda_device_id": 0
+  },
+  "model": {
+    "torch_dtype": "bfloat16",
+    "trust_remote_code": true,
+    "base_size": 1024,
+    "image_size": 1024,
+    "crop_mode": false
+  },
+  "memory": {
+    "vram_threshold": 0.9,
+    "auto_clear_cache": true,
+    "max_batch_size": 8
+  },
+  "ocr": {
+    "default_prompt": "<image>\\n<|grounding|>Convert the document to markdown. ",
+    "save_results": true,
+    "output_format": "markdown"
+  },
+  "pdf": {
+    "dpi": 200,
+    "output_format": "PNG",
+    "max_pages": 100
+  },
+  "logging": {
+    "level": "INFO",
+    "console_output": true,
+    "file_output": true,
+    "colored": true
+  },
+  "performance": {
+    "track_metrics": true,
+    "export_reports": true
+  }
+}
